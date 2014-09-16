@@ -22,7 +22,14 @@ use Cartalyst\Support\Collection;
 
 class Permission extends Collection {
 
-	public function setController($name, $methods = null)
+	/**
+	 * Sets the controller and the methods for this permission.
+	 *
+	 * @param  string  $name
+	 * @param  string|array  $methods
+	 * @return void
+	 */
+	public function controller($name, $methods = null)
 	{
 		$this->controller = $name;
 
@@ -31,9 +38,7 @@ class Permission extends Collection {
 			$methods = array_map('trim', explode(',', $methods));
 		}
 
-		$this->methods = $methods;
-
-		return $this;
+		$this->methods = (array) $methods;
 	}
 
 }
