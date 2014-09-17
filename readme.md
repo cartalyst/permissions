@@ -10,21 +10,17 @@ Package history and capabilities.
 
 - ..
 
-## Requirements
-
-- PHP >=5.4
-
 ## Installation
 
 Permissions is installable with Composer. Read further information on how to install.
 
-[Installation Guide](https://cartalyst.com/manual/permissions#installation)
+[Installation Guide](https://cartalyst.com/manual/permissions/1.0#installation)
 
 ## Documentation
 
 Refer to the following guide on how to use the Permissions package.
 
-[Documentation](https://cartalyst.com/manual/permissions)
+[Documentation](https://cartalyst.com/manual/permissions/1.0)
 
 ## Versioning
 
@@ -40,11 +36,13 @@ And constructed with the following guidelines:
 * New additions without breaking backward compatibility bumps the minor (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
+## Contributing
+
+Please read the [Contributing](contributing.md) guidelines.
+
 ## Support
 
-Have a bug? Please create an issue here on GitHub that conforms with [necolas's guidelines](https://github.com/necolas/issue-guidelines).
-
-https://github.com/cartalyst/permissions/issues
+Have a bug? Please create an [issue](https://github.com/cartalyst/permissions/issues) here on GitHub that conforms with [necolas's guidelines](https://github.com/necolas/issue-guidelines).
 
 Follow us on Twitter, [@cartalyst](http://twitter.com/cartalyst).
 
@@ -52,3 +50,5 @@ Join us for a chat on IRC.
 
 Server: irc.freenode.net
 Channel: #cartalyst
+
+Email: help@cartalyst.com
