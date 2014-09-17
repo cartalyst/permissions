@@ -22,6 +22,12 @@ Refer to the following guide on how to use the Permissions package.
 
 [Documentation](https://cartalyst.com/manual/permissions/1.0)
 
+## Testing
+
+```bash
+$ phpunit
+```
+
 ## Versioning
 
 We version under the [Semantic Versioning](http://semver.org/) guidelines as much as possible.
@@ -38,7 +44,7 @@ And constructed with the following guidelines:
 
 ## Contributing
 
-Please read the [Contributing](contributing.md) guidelines.
+Please see [contributing.md](contributing.md) for details.
 
 ## Support
 
