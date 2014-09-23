@@ -81,27 +81,6 @@ class ContainerTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/** @test */
-	public function it_can_use_magic_method_calls_to_get_container_attributes()
-	{
-		$container = new Container('foo', function($container)
-		{
-			$container->name('Foo');
-		});
-		$this->assertEquals('foo', $container->id());
-		$this->assertEquals('Foo', $container->name());
-		$this->assertNull($container->foo());
-	}
-
-	/** @test */
-	public function it_can_use_magic_method_calls_to_set_container_attributes()
-	{
-		$container = new Container('foo');
-		$container->name('Foo');
-		$this->assertEquals('foo', $container->id());
-		$this->assertEquals('Foo', $container->name());
-	}
-
-	/** @test */
 	public function a_container_can_have_a_single_group()
 	{
 		$this->container->group('foo');

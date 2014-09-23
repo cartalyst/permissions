@@ -81,27 +81,6 @@ class GroupTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/** @test */
-	public function it_can_use_magic_method_calls_to_get_group_attributes()
-	{
-		$group = new Group('foo', function($group)
-		{
-			$group->name('Foo');
-		});
-		$this->assertEquals('foo', $group->id());
-		$this->assertEquals('Foo', $group->name());
-		$this->assertNull($group->foo());
-	}
-
-	/** @test */
-	public function it_can_use_magic_method_calls_to_set_group_attributes()
-	{
-		$group = new Group('foo');
-		$group->name('Foo');
-		$this->assertEquals('foo', $group->id());
-		$this->assertEquals('Foo', $group->name());
-	}
-
-	/** @test */
 	public function a_group_can_have_a_single_permission()
 	{
 		$this->group->permission('foo');
