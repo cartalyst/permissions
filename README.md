@@ -4,7 +4,7 @@
 
 A framework agnostic permissions storage container.
 
-This package allows the storage of application permissions at runtime to be used on a permissions manager user interface.
+This package allows the storage of application permissions at runtime, as an example, these permissions could then be used on a permissions manager user interface.
 
 Part of the Cartalyst Arsenal & licensed [Cartalyst PSL](LICENSE). Code well, rock on.
 
