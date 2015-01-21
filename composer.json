@@ -1,10 +1,11 @@
 {
 	"name": "cartalyst/permissions",
-	"description": "",
+	"description": "A framework agnostic permissions storage container.",
 	"keywords": [
 		"php",
 		"cartalyst",
-		"laravel"
+		"laravel",
+		"permissions"
 	],
 	"license": "proprietary",
 	"authors": [
