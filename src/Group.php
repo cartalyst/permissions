@@ -34,7 +34,7 @@ class Group extends Collection
      */
     public function permission($id, Closure $callback = null)
     {
-        if (! $permission = $this->find($id)) {
+        if ( ! $permission = $this->find($id)) {
             $this->put($id, $permission = new Permission($id));
         }
 
