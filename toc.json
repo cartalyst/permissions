@@ -7,6 +7,11 @@
 	"setup" : [
 		"installation"
 	],
+	"integration": [
+		"index",
+		"native",
+		"laravel-4"
+	],
 	"usage": [
 		"index",
 		"container",
