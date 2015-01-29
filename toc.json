@@ -1,9 +1,16 @@
 {
-	"introduction" : [
-		"index",
+	"preface" : [
+		"introduction",
+		"features",
+		"examples"
+	],
+	"setup" : [
 		"installation"
 	],
 	"usage": [
-		"index"
+		"index",
+		"container",
+		"group",
+		"permission"
 	]
 }
