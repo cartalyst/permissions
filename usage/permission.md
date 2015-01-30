@@ -72,11 +72,11 @@ Here's how you do it:
             <td>The Permission identifier.</td>
         </tr>
         <tr>
-            <td>$options</td>
+            <td>$methods</td>
             <td>false</td>
             <td>string | array</td>
             <td>null</td>
-            <td>The methods for this controller.</td>
+            <td>The methods of this controller.</td>
         </tr>
     </tbody>
 </table>
