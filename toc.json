@@ -14,6 +14,7 @@
 	],
 	"usage": [
 		"index",
+		"briefing",
 		"container",
 		"group",
 		"permission"
