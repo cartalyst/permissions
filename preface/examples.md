@@ -5,37 +5,39 @@ In this example we'll be covering all the 3 sections of the Permissions package,
 ```php
 use Cartalyst\Permissions\Container;
 
-$container = new Container('main', function($c) {
+$container = new Container('main', function ($container) {
     // Assign some attributes
-    $c->name = 'Main';
-    $c->description = 'Main Container description.';
+    $container->name = 'Main';
+    $container->description = 'Main Container description.';
 
     // Create a new Group
-    $c->group('main-group', function($g) {
+    $container->group('main-group', function ($group) {
         // Assign some attributes
-        $g->name = 'Main Group';
-        $g->description = 'Main Group description.';
+        $group->name = 'Main Group';
+        $group->description = 'Main Group description.';
 
         // Create a new Permission
-        $g->permission('foo', function($p) {
-            $p->name = 'Foo Permission';
+        $group->permission('foo', function ($permission) {
+            $permission->name = 'Foo Permission';
 
-            $p->controller('App\Controllers\Foo', [ 'bar', 'baz' ]);
+            // Pass the controller methods as an array
+            $permission->controller('App\Controllers\Foo', [ 'bar', 'baz' ]);
         });
 
         // Create a new Permission
-        $g->permission('base', function($p) {
-            $p->name = 'Base Permission';
+        $group->permission('base', function ($permission) {
+            $permission->name = 'Base Permission';
 
-            $p->controller('App\Controllers\Base', 'index, view, update');
+            // Pass the controller methods as a string
+            $permission->controller('App\Controllers\Base', 'index, view, update');
         });
     });
 
     // Create another Group
-    $c->group('other-group', function($g) {
+    $container->group('other-group', function ($group) {
         // Assign some attributes
-        $g->name = 'Another Group';
-        $g->description = 'Another Group description.';
+        $group->name = 'Another Group';
+        $group->description = 'Another Group description.';
     });
 });
 ```

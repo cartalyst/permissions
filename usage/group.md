@@ -41,9 +41,9 @@ $group->description = 'Main Container Group';
 ```
 
 ```
-$group = $container->group('main-group', function ($g) {
-    $g->name = 'Main Group';
-    $g->description = 'Main Container Group';
+$group = $container->group('main-group', function ($group) {
+    $group->name = 'Main Group';
+    $group->description = 'Main Container Group';
 });
 ```
 
@@ -54,15 +54,15 @@ Assigning Permissions to a Group is very straightforward and there's two ways of
 ###### Method 1
 
 ```php
-$group = $container->group('main-group', function ($g) {
-    $g->name = 'Main Group';
-    $g->description = 'Main Container Group';
+$group = $container->group('main-group', function ($group) {
+    $group->name = 'Main Group';
+    $group->description = 'Main Container Group';
 
-    $group->permission('main', function ($p) {
-        $p->name = 'Main';
-        $p->description = 'My Foo@bar Controller Permission';
+    $group->permission('main', function ($permission) {
+        $permission->name = 'Main';
+        $permission->description = 'My Foo@bar Controller Permission';
 
-        $p->controller('App\Controllers\Foo', [ 'bar', 'baz' ]);
+        $permission->controller('App\Controllers\Foo', [ 'bar', 'baz' ]);
     });
 });
 ```

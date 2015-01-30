@@ -41,9 +41,9 @@ $permission->description = 'My Main Permission';
 ```
 
 ```
-$permission = $group->permission('main', function ($p) {
-    $p->name = 'Main';
-    $p->description = 'My Main Permission';
+$permission = $group->permission('main', function ($permission) {
+    $permission->name = 'Main';
+    $permission->description = 'My Main Permission';
 });
 ```
 
@@ -84,19 +84,19 @@ Here's how you do it:
 ###### Usage
 
 ```
-// Pass the options as an array
+// Pass the controller methods as an array
 $permission->controller('App\Controllers\Foo', [ 'bar', 'baz' ]);
 
-// Pass the options as a string
+// Pass the controller methods as a string
 $permission->controller('App\Controllers\Foo', 'bar, baz');
 ```
 
 ```
-$permission = $group->permission('main', function ($p) {
-    $p->name = 'Main';
-    $p->description = 'My Foo Controller Permission';
+$permission = $group->permission('main', function ($permission) {
+    $permission->name = 'Main';
+    $permission->description = 'My Foo Controller Permission';
 
     // Protect the given controller and the given methods
-    $p->controller('App\Controllers\Foo', [ 'bar', 'baz' ]);
+    $permission->controller('App\Controllers\Foo', [ 'bar', 'baz' ]);
 });
 ```
