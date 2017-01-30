@@ -50,7 +50,7 @@ class PermissionsServiceProvider extends ServiceProvider
      */
     protected function registerPermissionsContainer()
     {
-        $this->app['cartalyst.permissions'] = $this->app->share(function () {
+        $this->app->singleton('cartalyst.permissions', function () {
             return new Container('cartalyst');
         });
     }
