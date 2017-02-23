@@ -11,6 +11,12 @@ We do not give estimated times for completion on `Accepted` Proposals.
 
 ---
 
+### v1.0.3 - 2017-02-23
+
+`REVISED`
+
+- Loosened `cartalyst/support` version.
+
 ### v1.0.2 - 2017-01-30
 
 `REVISED`
