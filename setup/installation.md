@@ -8,7 +8,7 @@ The best and easiest way to install the Permissions package is with [Composer](h
 
 Open your `composer.json` file and add the following to the `require` array:
 
-    "cartalyst/permissions": "~1.0"
+    "cartalyst/permissions": "^2.0"
 
 Add the following lines after the `require` array on your `composer.json` file:
 

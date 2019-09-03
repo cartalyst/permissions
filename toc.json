@@ -1,22 +1,22 @@
 {
-	"preface" : [
-		"introduction",
-		"features",
-		"examples"
-	],
-	"setup" : [
-		"installation"
-	],
-	"integration": [
-		"index",
-		"native",
-		"laravel-4"
-	],
-	"usage": [
-		"index",
-		"briefing",
-		"container",
-		"group",
-		"permission"
-	]
+    "preface": [
+        "introduction",
+        "features",
+        "examples"
+    ],
+    "setup": [
+        "installation"
+    ],
+    "integration": [
+        "index",
+        "native",
+        "laravel"
+    ],
+    "usage": [
+        "index",
+        "briefing",
+        "container",
+        "group",
+        "permission"
+    ]
 }

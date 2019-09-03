@@ -1,6 +1,6 @@
-### Laravel 4
+### Laravel
 
-The Permissions package has optional support for Laravel 4 and it comes bundled with a Service Provider for easy integration.
+The Permissions package has optional support for Laravel 6 and it comes bundled with a Service Provider for easy integration.
 
 After installing the package, open your Laravel config file located at `app/config/app.php` and add the following lines.
 

@@ -1,7 +1,7 @@
 {
-	"github" : "cartalyst/permissions",
-	"demo" : {
-		"source" : null,
-		"online" : null
-	}
+    "github": "cartalyst/permissions",
+    "demo": {
+        "source": null,
+        "online": null
+    }
 }
