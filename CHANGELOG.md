@@ -1,15 +1,4 @@
-# Permissions Change Log
-
-This project follows [Semantic Versioning](CONTRIBUTING.md).
-
-## Proposals
-
-We do not give estimated times for completion on `Accepted` Proposals.
-
-- [Accepted](https://github.com/cartalyst/permissions/labels/Accepted)
-- [Rejected](https://github.com/cartalyst/permissions/labels/Rejected)
-
----
+# Changelog
 
 ### v1.0.3 - 2017-02-23
 
