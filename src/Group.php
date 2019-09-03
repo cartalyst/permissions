@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Part of the Permissions package.
  *
  * NOTICE OF LICENSE
@@ -21,20 +21,20 @@
 namespace Cartalyst\Permissions;
 
 use Closure;
-use Cartalyst\Support\Collection;
 
 class Group extends Collection
 {
     /**
      * Returns a permission instance.
      *
-     * @param  mixed  $id
-     * @param  \Closure  $callback
-     * @return \Illuminate\Support\Collection
+     * @param mixed         $id
+     * @param \Closure|null $callback
+     *
+     * @return \Cartalyst\Permissions\Collection
      */
-    public function permission($id, Closure $callback = null)
+    public function permission($id, Closure $callback = null): Collection
     {
-        if ( ! $permission = $this->find($id)) {
+        if (! $permission = $this->find($id)) {
             $this->put($id, $permission = new Permission($id));
         }
 
@@ -48,7 +48,7 @@ class Group extends Collection
      *
      * @return bool
      */
-    public function hasPermissions()
+    public function hasPermissions(): bool
     {
         return (bool) $this->count();
     }

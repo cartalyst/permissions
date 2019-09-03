@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Part of the Permissions package.
  *
  * NOTICE OF LICENSE
@@ -20,10 +20,10 @@
 
 namespace Cartalyst\Permissions\Tests;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Cartalyst\Permissions\Permission;
 
-class PermissionTest extends PHPUnit_Framework_TestCase
+class PermissionTest extends TestCase
 {
     /**
      * The permissions permission instance.
@@ -33,9 +33,9 @@ class PermissionTest extends PHPUnit_Framework_TestCase
     protected $permission;
 
     /**
-     * Setup resources and dependencies
+     * {@inheritdoc}
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->permission = new Permission('main');
     }
@@ -45,22 +45,24 @@ class PermissionTest extends PHPUnit_Framework_TestCase
     {
         $permission = new Permission('main');
 
-        $this->assertInstanceOf('Cartalyst\Permissions\Permission', $permission);
+        $this->assertInstanceOf(Permission::class, $permission);
     }
 
     /** @test */
     public function a_permission_can_be_instantiated_and_have_attributes()
     {
-        $permission = new Permission('foo');
+        $permission       = new Permission('foo');
         $permission->name = 'Foo';
-        $this->assertEquals('foo', $permission->id);
-        $this->assertEquals('Foo', $permission->name);
+
+        $this->assertSame('foo', $permission->id);
+        $this->assertSame('Foo', $permission->name);
 
         $permission = new Permission('foo', function ($permission) {
             $permission->name = 'Foo';
         });
-        $this->assertEquals('foo', $permission->id);
-        $this->assertEquals('Foo', $permission->name);
+
+        $this->assertSame('foo', $permission->id);
+        $this->assertSame('Foo', $permission->name);
     }
 
     /** @test */
@@ -69,20 +71,20 @@ class PermissionTest extends PHPUnit_Framework_TestCase
         $permission = new Permission('foo');
         $permission->controller('FooController', 'foo, bar');
 
-        $this->assertEquals('FooController', $permission->controller);
-        $this->assertEquals(['foo', 'bar'], $permission->methods);
+        $this->assertSame('FooController', $permission->controller);
+        $this->assertSame(['foo', 'bar'], $permission->methods);
 
         $permission = new Permission('foo');
         $permission->controller('FooController', 'foo,bar');
 
-        $this->assertEquals('FooController', $permission->controller);
-        $this->assertEquals(['foo', 'bar'], $permission->methods);
+        $this->assertSame('FooController', $permission->controller);
+        $this->assertSame(['foo', 'bar'], $permission->methods);
 
         $permission = new Permission('foo');
         $permission->controller('BarController', ['foo', 'bar', 'baz']);
 
-        $this->assertEquals('BarController', $permission->controller);
-        $this->assertEquals(['foo', 'bar', 'baz'], $permission->methods);
+        $this->assertSame('BarController', $permission->controller);
+        $this->assertSame(['foo', 'bar', 'baz'], $permission->methods);
     }
 
     /** @test */
@@ -91,19 +93,19 @@ class PermissionTest extends PHPUnit_Framework_TestCase
         $permission = new Permission('foo');
         $permission->controller('FooController');
 
-        $this->assertEquals('FooController', $permission->controller);
-        $this->assertEquals([], $permission->methods);
+        $this->assertSame('FooController', $permission->controller);
+        $this->assertSame([], $permission->methods);
 
         $permission = new Permission('foo');
         $permission->controller('FooController');
 
-        $this->assertEquals('FooController', $permission->controller);
-        $this->assertEquals([], $permission->methods);
+        $this->assertSame('FooController', $permission->controller);
+        $this->assertSame([], $permission->methods);
 
         $permission = new Permission('foo');
         $permission->controller('BarController');
 
-        $this->assertEquals('BarController', $permission->controller);
-        $this->assertEquals([], $permission->methods);
+        $this->assertSame('BarController', $permission->controller);
+        $this->assertSame([], $permission->methods);
     }
 }

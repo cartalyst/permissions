@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Part of the Permissions package.
  *
  * NOTICE OF LICENSE
@@ -20,10 +20,10 @@
 
 namespace Cartalyst\Permissions\Tests;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Cartalyst\Permissions\Container;
 
-class ContainerTest extends PHPUnit_Framework_TestCase
+class ContainerTest extends TestCase
 {
     /**
      * The permissions container instance.
@@ -33,9 +33,9 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     protected $container;
 
     /**
-     * Setup resources and dependencies
+     * {@inheritdoc}
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->container = new Container('main');
     }
@@ -45,40 +45,43 @@ class ContainerTest extends PHPUnit_Framework_TestCase
     {
         $container = new Container('main');
 
-        $this->assertInstanceOf('Cartalyst\Permissions\Container', $container);
+        $this->assertInstanceOf(Container::class, $container);
     }
 
     /** @test */
     public function a_container_can_be_instantiated_and_have_attributes()
     {
-        $container = new Container('foo');
+        $container       = new Container('foo');
         $container->name = 'Foo';
-        $this->assertEquals('foo', $container->id);
-        $this->assertEquals('Foo', $container->name);
+
+        $this->assertSame('foo', $container->id);
+        $this->assertSame('Foo', $container->name);
 
         $container = new Container('foo', function ($container) {
             $container->name = 'Foo';
         });
-        $this->assertEquals('foo', $container->id);
-        $this->assertEquals('Foo', $container->name);
+
+        $this->assertSame('foo', $container->id);
+        $this->assertSame('Foo', $container->name);
     }
 
     /** @test */
     public function a_container_group_can_be_instantiated_and_have_attributes()
     {
-        $group = $this->container->group('foo');
+        $group       = $this->container->group('foo');
         $group->name = 'Foo';
         $group->info = 'Foo bar baz bat';
-        $this->assertEquals('Foo', $group->name);
-        $this->assertEquals('Foo bar baz bat', $group->info);
 
+        $this->assertSame('Foo', $group->name);
+        $this->assertSame('Foo bar baz bat', $group->info);
 
         $group = $this->container->group('foo', function ($group) {
             $group->name = 'Foo';
             $group->info = 'Foo bar baz bat';
         });
-        $this->assertEquals('Foo', $group->name);
-        $this->assertEquals('Foo bar baz bat', $group->info);
+
+        $this->assertSame('Foo', $group->name);
+        $this->assertSame('Foo bar baz bat', $group->info);
     }
 
     /** @test */
@@ -87,6 +90,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->container->group('foo');
 
         $this->assertCount(1, $this->container);
+
         $this->assertFalse($this->container->isEmpty());
         $this->assertTrue($this->container->hasGroups());
     }
@@ -99,6 +103,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->container->group('baz');
 
         $this->assertCount(3, $this->container);
+
         $this->assertFalse($this->container->isEmpty());
         $this->assertTrue($this->container->hasGroups());
     }
@@ -120,7 +125,7 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->container->group('bar');
         $this->container->group('baz');
 
-        $this->assertEquals('foo', $this->container->group('foo')->id);
+        $this->assertSame('foo', $this->container->group('foo')->id);
     }
 
     /** @test */
@@ -131,16 +136,20 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->container->group('baz');
 
         $this->assertCount(3, $this->container);
+
         $this->assertTrue($this->container->hasGroups());
-        $this->assertEquals('foo', $this->container->first()->id);
-        $this->assertEquals('baz', $this->container->last()->id);
+
+        $this->assertSame('foo', $this->container->first()->id);
+        $this->assertSame('baz', $this->container->last()->id);
 
         $this->container->pull('baz');
 
         $this->assertCount(2, $this->container);
+
         $this->assertTrue($this->container->hasGroups());
-        $this->assertEquals('foo', $this->container->first()->id);
-        $this->assertEquals('bar', $this->container->last()->id);
+
+        $this->assertSame('foo', $this->container->first()->id);
+        $this->assertSame('bar', $this->container->last()->id);
     }
 
     /** @test */
@@ -149,17 +158,17 @@ class ContainerTest extends PHPUnit_Framework_TestCase
         $this->container->group('foo', function ($group) {
             $group->name = 'Foo';
         });
-        $this->assertEquals('Foo', $this->container->group('foo')->name);
 
+        $this->assertSame('Foo', $this->container->group('foo')->name);
 
-        $group = $this->container->group('foo');
+        $group       = $this->container->group('foo');
         $group->name = 'Fooo';
-        $this->assertEquals('Fooo', $this->container->group('foo')->name);
-
+        $this->assertSame('Fooo', $this->container->group('foo')->name);
 
         $group = $this->container->group('foo', function ($group) {
             $group->name = 'Foooo';
         });
-        $this->assertEquals('Foooo', $this->container->group('foo')->name);
+
+        $this->assertSame('Foooo', $this->container->group('foo')->name);
     }
 }

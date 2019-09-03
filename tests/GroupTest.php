@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Part of the Permissions package.
  *
  * NOTICE OF LICENSE
@@ -20,10 +20,10 @@
 
 namespace Cartalyst\Permissions\Tests;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Cartalyst\Permissions\Group;
 
-class GroupTest extends PHPUnit_Framework_TestCase
+class GroupTest extends TestCase
 {
     /**
      * The permissions group instance.
@@ -33,9 +33,9 @@ class GroupTest extends PHPUnit_Framework_TestCase
     protected $group;
 
     /**
-     * Setup resources and dependencies
+     * {@inheritdoc}
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->group = new Group('main');
     }
@@ -45,40 +45,43 @@ class GroupTest extends PHPUnit_Framework_TestCase
     {
         $group = new Group('main');
 
-        $this->assertInstanceOf('Cartalyst\Permissions\Group', $group);
+        $this->assertInstanceOf(Group::class, $group);
     }
 
     /** @test */
     public function a_group_can_be_instantiated_and_have_attributes()
     {
-        $group = new Group('foo');
+        $group       = new Group('foo');
         $group->name = 'Foo';
-        $this->assertEquals('foo', $group->id);
-        $this->assertEquals('Foo', $group->name);
+
+        $this->assertSame('foo', $group->id);
+        $this->assertSame('Foo', $group->name);
 
         $group = new Group('foo', function ($group) {
             $group->name = 'Foo';
         });
-        $this->assertEquals('foo', $group->id);
-        $this->assertEquals('Foo', $group->name);
+
+        $this->assertSame('foo', $group->id);
+        $this->assertSame('Foo', $group->name);
     }
 
     /** @test */
     public function a_group_permission_can_be_instantiated_and_have_attributes()
     {
-        $permission = $this->group->permission('foo');
+        $permission       = $this->group->permission('foo');
         $permission->name = 'Foo';
         $permission->info = 'Foo bar baz bat';
-        $this->assertEquals('Foo', $permission->name);
-        $this->assertEquals('Foo bar baz bat', $permission->info);
 
+        $this->assertSame('Foo', $permission->name);
+        $this->assertSame('Foo bar baz bat', $permission->info);
 
         $permission = $this->group->permission('foo', function ($permission) {
             $permission->name = 'Foo';
             $permission->info = 'Foo bar baz bat';
         });
-        $this->assertEquals('Foo', $permission->name);
-        $this->assertEquals('Foo bar baz bat', $permission->info);
+
+        $this->assertSame('Foo', $permission->name);
+        $this->assertSame('Foo bar baz bat', $permission->info);
     }
 
     /** @test */
@@ -87,7 +90,9 @@ class GroupTest extends PHPUnit_Framework_TestCase
         $this->group->permission('foo');
 
         $this->assertCount(1, $this->group);
+
         $this->assertFalse($this->group->isEmpty());
+
         $this->assertTrue($this->group->hasPermissions());
     }
 
@@ -99,6 +104,7 @@ class GroupTest extends PHPUnit_Framework_TestCase
         $this->group->permission('baz');
 
         $this->assertCount(3, $this->group);
+
         $this->assertFalse($this->group->isEmpty());
         $this->assertTrue($this->group->hasPermissions());
     }
@@ -120,7 +126,7 @@ class GroupTest extends PHPUnit_Framework_TestCase
         $this->group->permission('bar');
         $this->group->permission('baz');
 
-        $this->assertEquals('foo', $this->group->permission('foo')->id);
+        $this->assertSame('foo', $this->group->permission('foo')->id);
     }
 
     /** @test */
@@ -131,16 +137,20 @@ class GroupTest extends PHPUnit_Framework_TestCase
         $this->group->permission('baz');
 
         $this->assertCount(3, $this->group);
+
         $this->assertTrue($this->group->hasPermissions());
-        $this->assertEquals('foo', $this->group->first()->id);
-        $this->assertEquals('baz', $this->group->last()->id);
+
+        $this->assertSame('foo', $this->group->first()->id);
+        $this->assertSame('baz', $this->group->last()->id);
 
         $this->group->pull('baz');
 
         $this->assertCount(2, $this->group);
+
         $this->assertTrue($this->group->hasPermissions());
-        $this->assertEquals('foo', $this->group->first()->id);
-        $this->assertEquals('bar', $this->group->last()->id);
+
+        $this->assertSame('foo', $this->group->first()->id);
+        $this->assertSame('bar', $this->group->last()->id);
     }
 
     /** @test */
@@ -149,17 +159,18 @@ class GroupTest extends PHPUnit_Framework_TestCase
         $this->group->permission('foo', function ($group) {
             $group->name = 'Foo';
         });
-        $this->assertEquals('Foo', $this->group->permission('foo')->name);
 
+        $this->assertSame('Foo', $this->group->permission('foo')->name);
 
-        $group = $this->group->permission('foo');
+        $group       = $this->group->permission('foo');
         $group->name = 'Fooo';
-        $this->assertEquals('Fooo', $this->group->permission('foo')->name);
 
+        $this->assertSame('Fooo', $this->group->permission('foo')->name);
 
         $group = $this->group->permission('foo', function ($group) {
             $group->name = 'Foooo';
         });
-        $this->assertEquals('Foooo', $this->group->permission('foo')->name);
+
+        $this->assertSame('Foooo', $this->group->permission('foo')->name);
     }
 }

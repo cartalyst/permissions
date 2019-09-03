@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Part of the Permissions package.
  *
  * NOTICE OF LICENSE
@@ -20,19 +20,17 @@
 
 namespace Cartalyst\Permissions;
 
-use Closure;
-use Cartalyst\Support\Collection;
-
 class Permission extends Collection
 {
     /**
      * Sets the controller and the methods for this permission.
      *
-     * @param  string  $name
-     * @param  string|array  $methods
+     * @param string       $name
+     * @param array|string $methods
+     *
      * @return void
      */
-    public function controller($name, $methods = null)
+    public function controller(string $name, $methods = null): self
     {
         $this->controller = $name;
 
@@ -41,5 +39,7 @@ class Permission extends Collection
         }
 
         $this->methods = (array) $methods;
+
+        return $this;
     }
 }

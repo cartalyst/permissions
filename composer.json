@@ -22,8 +22,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
-        "cartalyst/support": "~1.1|~2.0"
+        "php": "^7.2"
     },
     "require-dev": {
         "cartalyst/php-cs-fixer-config": "^1.0",

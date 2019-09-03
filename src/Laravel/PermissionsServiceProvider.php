@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * Part of the Permissions package.
  *
  * NOTICE OF LICENSE
@@ -26,7 +26,7 @@ use Illuminate\Support\ServiceProvider;
 class PermissionsServiceProvider extends ServiceProvider
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function register()
     {
@@ -34,7 +34,7 @@ class PermissionsServiceProvider extends ServiceProvider
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function provides()
     {
