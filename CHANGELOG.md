@@ -1,5 +1,9 @@
 # Changelog
 
+### v3.0.0 - 2022-04-08
+
+- Drop PHP 7.4 support
+
 ### v2.1.0 - 2020-12-22
 
 - Add PHP 8 support
