@@ -11,11 +11,11 @@
  * bundled with this package in the LICENSE file.
  *
  * @package    Permissions
- * @version    2.1.0
+ * @version    3.0.0
  * @author     Cartalyst LLC
  * @license    Cartalyst PSL
- * @copyright  (c) 2011-2019, Cartalyst LLC
- * @link       http://cartalyst.com
+ * @copyright  (c) 2011-2022, Cartalyst LLC
+ * @link       https://cartalyst.com
  */
 
 namespace Cartalyst\Permissions\Laravel;
