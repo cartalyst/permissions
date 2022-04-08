@@ -255,13 +255,15 @@ abstract class Collection implements ArrayAccess, Countable
      *
      * @return mixed
      */
-    public function offsetGet($key)
+    public function offsetGet($key): mixed
     {
         $this->executeBeforeCallback();
 
         if (isset($this->items[$key])) {
             return $this->items[$key];
         }
+
+        return null;
     }
 
     /**
